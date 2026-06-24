@@ -1,9 +1,10 @@
 {
     "version": 2,
     "name": "khairulilham-portfolio",
+    "cleanUrls": true,
     "routes": [
         {
-            "src": "/",
+            "src": "/index",
             "dest": "/index.html"
         },
         {
@@ -21,6 +22,34 @@
         {
             "src": "/admin",
             "dest": "/admin/index.html"
+        },
+        {
+            "src": "/admin/dashboard",
+            "dest": "/admin/dashboard.html"
+        },
+        {
+            "src": "/admin/messages",
+            "dest": "/admin/messages.html"
+        },
+        {
+            "src": "/admin/projects",
+            "dest": "/admin/projects.html"
+        },
+        {
+            "src": "/admin/articles",
+            "dest": "/admin/articles.html"
+        },
+        {
+            "src": "/admin/experiences",
+            "dest": "/admin/experiences.html"
+        },
+        {
+            "src": "/admin/skills",
+            "dest": "/admin/skills.html"
+        },
+        {
+            "src": "/admin/settings",
+            "dest": "/admin/settings.html"
         }
     ],
     "headers": [
