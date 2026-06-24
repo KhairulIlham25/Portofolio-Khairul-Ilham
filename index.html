@@ -1,0 +1,655 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruli Ilham | Portfolio — Informatics Student &amp; Developer</title>
+    <meta name="description"
+        content="Portfolio Khairul Ilham — Mahasiswa Teknik Informatika, Full-Stack Web Developer, UI/UX Designer, dan System Analyst dari Tanjungpinang, Indonesia.">
+    <meta name="keywords" content="Khairul Ilham, portfolio, web developer, UI/UX, Laravel, informatika, UMRAH">
+    <meta name="author" content="Khairul Ilham">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Khairul Ilham | Portfolio">
+    <meta property="og:description" content="Full-Stack Web Developer & UI/UX Designer – Informatics Student at UMRAH.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/Logo 2.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Theme (load first to prevent flash) -->
+    <script src="js/theme.js"></script>
+
+    <!-- Font Awesome (social icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══════════════════════════════════════ -->
+    <header class="navbar" id="navbar">
+        <a href="index.html" class="brand" aria-label="Home">
+            <img src="assets/images/Logo 2.png" alt="KIF Logo">
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="index.html" id="nav-home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="articles.html">Articles</a>
+        </nav>
+
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" onclick="ThemeManager.toggle()">
+                <!-- Moon icon (shown in light mode) -->
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    width="18" height="18">
+                    <path fill-rule="evenodd"
+                        d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+                        clip-rule="evenodd" />
+                </svg>
+                <!-- Sun icon (shown in dark mode) -->
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    width="18" height="18">
+                    <path
+                        d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                </svg>
+            </button>
+            <a href="contact.html" class="nav-cta">Contact</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="articles.html">Articles</a>
+        <a href="contact.html" class="nav-cta" style="text-align:center;">Contact</a>
+    </nav>
+
+    <main>
+        <!-- ══ HERO ══════════════════════════════════ -->
+        <div class="section-container bg-light">
+            <section class="hero" aria-label="Hero section">
+                <div class="hero-text">
+                    <p class="badge">IT Undergraduate • Full-Stack Web Developer</p>
+
+                    <h1>
+                        Hi, I'm <span>Khairul Ilham</span>
+                    </h1>
+
+                    <!-- Typing effect line -->
+                    <p class="hero-typing-line">
+                        I'm a&nbsp;<span id="typingText" class="typing-text"></span><span class="typing-cursor">|</span>
+                    </p>
+
+                    <p class="hero-desc">
+                        Informatics Engineering student dengan minat besar pada
+                        <strong>Full-Stack Web Development</strong>,
+                        <strong>UI/UX Design</strong>, dan
+                        <strong>System Analysis</strong>.
+                        Saya terbiasa membangun solusi digital yang responsif dan terstruktur.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn btn-cta btn-cta--primary" id="ctaViewProjects">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect x="14" y="3" width="7" height="7" rx="1" />
+                                <rect x="3" y="14" width="7" height="7" rx="1" />
+                                <rect x="14" y="14" width="7" height="7" rx="1" />
+                            </svg>
+                            View Projects
+                        </a>
+                        <button class="btn btn-cta btn-cta--outline" id="ctaDownloadCV"
+                            onclick="alert('CV akan segera tersedia. Ganti onclick ini dengan link PDF-mu!')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            Download CV
+                        </button>
+                        <a href="contact.html" class="btn btn-cta btn-cta--outline" id="ctaContactMe">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Social Icon Buttons -->
+                    <div class="hero-socials">
+                        <a href="https://github.com/KhairulIlham25" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/khairul-ilham-7752a32a7/?locale=en" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://instagram.com/ilhamfatihulhaq" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="mailto:rulikhairul25@gmail.com" class="social-icon-btn" aria-label="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrap">
+                    <div class="hero-image-card">
+                        <img src="assets/images/profile.jpg" alt="Foto Khairul Ilham" loading="lazy">
+                    </div>
+                    <div class="floating-card">
+                        <span>Available for</span>
+                        <strong>Web Development</strong>
+                    </div>
+                </div>
+
+                <a href="#about" class="scroll-down" aria-label="Scroll to About section">
+                    <span>Scroll Down</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+            </section>
+        </div>
+
+        <!-- ══ ABOUT ══════════════════════════════════ -->
+        <div class="section-container bg-white">
+            <section id="about" class="section" aria-label="About section">
+                <div class="section-heading reveal">
+                    <h2>Tentang Saya</h2>
+                    <p>Get to know me better</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-image reveal">
+                        <img src="assets/images/about.jpeg" alt="Khairul Ilham — About Photo" loading="lazy">
+                    </div>
+
+                    <div class="about-text reveal">
+                        <p class="about-lead">
+                            Halo! Saya <strong>Khairul Ilham</strong>, seorang mahasiswa Teknik Informatika di
+                            Universitas Maritim Raja Ali Haji. Saya memiliki passion yang kuat dalam
+                            menjembatani logika teknis dengan desain visual yang intuitif.
+                        </p>
+
+                        <p class="about-desc">
+                            Saya memiliki pengalaman praktis dalam merancang arsitektur sistem terstruktur
+                            menggunakan Unified Modeling Language (UML) dan membangun aplikasi web terintegrasi.
+                            Saya selalu bersemangat untuk belajar teknologi baru, mulai dari implementasi
+                            WebGIS hingga dasar-dasar Data Science.
+                        </p>
+
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        width="22" height="22" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="detail-label">Nama</h4>
+                                    <p class="detail-value">Khairul Ilham</p>
+                                </div>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        width="22" height="22" aria-hidden="true">
+                                        <path
+                                            d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                                        <path
+                                            d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="detail-label">Email</h4>
+                                    <p class="detail-value">rulikhairul25@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        width="22" height="22" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="detail-label">Lokasi</h4>
+                                    <p class="detail-value">Tanjungpinang, Indonesia</p>
+                                </div>
+                            </div>
+
+                            <div class="detail-item">
+                                <span class="detail-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        width="22" height="22" aria-hidden="true">
+                                        <path
+                                            d="M11.644 1.59a.75.75 0 0 1 .712 0l9.75 5.25a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.712 0l-9.75-5.25a.75.75 0 0 1 0-1.32l9.75-5.25Z" />
+                                        <path
+                                            d="m3.265 10.602 7.668 4.129a2.25 2.25 0 0 0 2.134 0l7.668-4.13v2.065a1.5 1.5 0 0 1-.681 1.258l-6.91 4.318a2.25 2.25 0 0 1-2.288 0l-6.91-4.318a1.5 1.5 0 0 1-.681-1.258v-2.064Z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h4 class="detail-label">Pendidikan</h4>
+                                    <p class="detail-value">Teknik Informatika, UMRAH</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interests -->
+                        <div class="about-interests">
+                            <h4><i class="fas fa-heart" aria-hidden="true"></i> Interests</h4>
+                            <div class="interest-list">
+                                <span class="interest-item"><i class="fas fa-globe" aria-hidden="true"></i> Web
+                                    Development</span>
+                                <span class="interest-item"><i class="fas fa-robot" aria-hidden="true"></i> Machine
+                                    Learning</span>
+                                <span class="interest-item"><i class="fas fa-microchip" aria-hidden="true"></i> IoT
+                                    Systems</span>
+                                <span class="interest-item"><i class="fas fa-database" aria-hidden="true"></i> Data
+                                    Science</span>
+                                <span class="interest-item"><i class="fas fa-shield-alt" aria-hidden="true"></i>
+                                    Cybersecurity</span>
+                                <span class="interest-item"><i class="fas fa-cloud" aria-hidden="true"></i> Cloud
+                                    Computing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ══ SKILLS ════════════════════════════════ -->
+        <div class="section-container bg-light">
+            <section id="skills" class="section" aria-label="Skills section">
+                <div class="section-heading reveal">
+                    <h2>Keahlian &amp; Teknologi</h2>
+                    <p>Tools and technologies I use to build digital solutions.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Skill Card: System Analysis -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                                height="24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.26 5.26 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.123 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <h3>System Analysis &amp; Design</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Diagram UML</span>
+                                    <span class="skill-pct">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">UI/UX Design (Figma)</span>
+                                    <span class="skill-pct">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Scrum Methodology</span>
+                                    <span class="skill-pct">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card: Web Development -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                                height="24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M14.447 3.026a.75.75 0 0 1 .527.921l-4.5 16.5a.75.75 0 0 1-1.448-.394l4.5-16.5a.75.75 0 0 1 .921-.527ZM16.72 6.22a.75.75 0 0 1 1.06 0l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 0 1 0-1.06Zm-9.44 0a.75.75 0 0 1 0 1.06L2.56 12l4.72 4.72a.75.75 0 0 1-1.06 1.06L.97 12.53a.75.75 0 0 1 0-1.06l5.25-5.25a.75.75 0 0 1 1.06 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <h3>Web Development</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Laravel &amp; PHP</span>
+                                    <span class="skill-pct">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Tailwind CSS</span>
+                                    <span class="skill-pct">95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript &amp; Vite</span>
+                                    <span class="skill-pct">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">MySQL &amp; WebGIS</span>
+                                    <span class="skill-pct">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card: Others -->
+                    <div class="skill-card reveal">
+                        <div class="skill-card-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                                height="24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l1.042.822c.118.093.18.232.186.38a7.17 7.17 0 0 0 0 1.353c-.006.148-.068.287-.186.38l-1.042.822a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.31.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.675-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-1.043-.822c-.117-.093-.18-.232-.186-.38a7.167 7.167 0 0 0 0-1.353c.006-.148.069-.287.186-.38l1.043-.822a1.875 1.875 0 0 0 .432-2.385l-.923-1.597a1.875 1.875 0 0 0-2.28-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <h3>Lainnya</h3>
+                        </div>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git / Version Control</span>
+                                    <span class="skill-pct">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Python &amp; Data Science</span>
+                                    <span class="skill-pct">75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">AI Tools (Copilot/ChatGPT)</span>
+                                    <span class="skill-pct">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Flutter &amp; Dart</span>
+                                    <span class="skill-pct">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ══ EXPERIENCE ═════════════════════════════ -->
+        <div class="section-container bg-white">
+            <section id="experience" class="section" aria-label="Experience section">
+                <div class="section-heading reveal">
+                    <h2>Pengalaman Kerja</h2>
+                    <p>My professional journey and contributions so far.</p>
+                </div>
+
+                <div class="experience-timeline">
+                    <!-- Exp 1 -->
+                    <div class="exp-item reveal">
+                        <div class="exp-left">
+                            <div class="exp-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    width="20" height="20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M14.447 3.026a.75.75 0 0 1 .527.921l-4.5 16.5a.75.75 0 0 1-1.448-.394l4.5-16.5a.75.75 0 0 1 .921-.527ZM16.72 6.22a.75.75 0 0 1 1.06 0l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 0 1 0-1.06Zm-9.44 0a.75.75 0 0 1 0 1.06L2.56 12l4.72 4.72a.75.75 0 0 1-1.06 1.06L.97 12.53a.75.75 0 0 1 0-1.06l5.25-5.25a.75.75 0 0 1 1.06 0Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="exp-line"></div>
+                        </div>
+                        <div class="exp-card">
+                            <div class="exp-header">
+                                <div>
+                                    <h3>Web Developer Intern</h3>
+                                    <span class="exp-company">Dinas Komunikasi dan Informatika Kota Tanjungpinang</span>
+                                </div>
+                                <span class="exp-badge">Januari 2026 — Sekarang</span>
+                            </div>
+                            <p>Merancang blueprint arsitektur sistem berbasis UML dan mengimplementasikan metodologi
+                                Scrum dalam siklus pengembangan platform. Menangani integrasi fungsionalitas WebGIS
+                                untuk memvisualisasikan data spasial secara responsif.</p>
+                            <div class="exp-tags">
+                                <span>Laravel</span>
+                                <span>Tailwind CSS</span>
+                                <span>WebGIS</span>
+                                <span>Scrum</span>
+                                <span>UML</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exp 2 -->
+                    <div class="exp-item reveal">
+                        <div class="exp-left">
+                            <div class="exp-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    width="20" height="20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97ZM6.75 8.25a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H7.5Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="exp-line"></div>
+                        </div>
+                        <div class="exp-card">
+                            <div class="exp-header">
+                                <div>
+                                    <h3>Full-Stack &amp; UI/UX (Project Based)</h3>
+                                </div>
+                                <span class="exp-badge">2023 — Sekarang</span>
+                            </div>
+                            <p>Mengembangkan dan mendeploy berbagai proyek website mulai dari desain antarmuka
+                                (wireframing &amp; prototyping) hingga tahap production. Terbiasa memecahkan masalah
+                                melalui pendekatan desain yang berorientasi pada pengguna (User-Centered Design).</p>
+                            <div class="exp-tags">
+                                <span>Figma</span>
+                                <span>UI/UX Design</span>
+                                <span>JavaScript</span>
+                                <span>PHP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exp 3 -->
+                    <div class="exp-item reveal">
+                        <div class="exp-left">
+                            <div class="exp-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    width="20" height="20" aria-hidden="true">
+                                    <path
+                                        d="M11.644 1.59a.75.75 0 0 1 .712 0l9.75 5.25a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.712 0l-9.75-5.25a.75.75 0 0 1 0-1.32l9.75-5.25Z" />
+                                    <path
+                                        d="m3.265 10.602 7.668 4.129a2.25 2.25 0 0 0 2.134 0l7.668-4.13v2.065a1.5 1.5 0 0 1-.681 1.258l-6.91 4.318a2.25 2.25 0 0 1-2.288 0l-6.91-4.318a1.5 1.5 0 0 1-.681-1.258v-2.064Z" />
+                                </svg>
+                            </div>
+                            <div class="exp-line exp-line--last"></div>
+                        </div>
+                        <div class="exp-card">
+                            <div class="exp-header">
+                                <div>
+                                    <h3>Mahasiswa Teknik Informatika</h3>
+                                    <span class="exp-company">Universitas Maritim Raja Ali Haji</span>
+                                </div>
+                                <span class="exp-badge">2023 — Sekarang</span>
+                            </div>
+                            <p>Aktif memperdalam rekayasa perangkat lunak, algoritma, serta teknologi jaringan (wireless
+                                networks). Mengikuti program sertifikasi eksternal dari Dicoding Indonesia dan DBS
+                                Coding Camp untuk menunjang kompetensi profesional.</p>
+                            <div class="exp-tags">
+                                <span>System Architecture</span>
+                                <span>Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ══ CONTACT CTA ════════════════════════════ -->
+        <section id="contact-cta" class="contact-section reveal" aria-label="Contact call to action">
+            <div>
+                <p>Let's Collaborate</p>
+                <h2>Punya ide project atau butuh System Analyst / Developer?</h2>
+            </div>
+            <a href="contact.html" class="btn primary">Hubungi Saya</a>
+        </section>
+    </main>
+
+    <!-- ══ FOOTER ════════════════════════════════════ -->
+    <footer class="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="brand" aria-label="Home">
+                    <img src="assets/images/Logo 2.png" alt="KIF Logo">
+                </a>
+                <p>Mahasiswa Teknik Informatika yang memiliki passion dalam web development dan UI/UX design. Selalu
+                    siap untuk kolaborasi dan proyek baru.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/KhairulIlham25" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
+                            height="18" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/khairul-ilham-7752a32a7/?locale=en" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
+                            height="18" aria-hidden="true">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/ilhamfatihulhaq" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
+                            height="18" aria-hidden="true">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>rulikhairul25@gmail.com</li>
+                        <li><a href="https://wa.me/6281275771644" target="_blank" rel="noopener noreferrer">(+62)
+                                812-7577-1644</a></li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Tanjungpinang%2C+Indonesia"
+                                target="_blank" rel="noopener noreferrer">Tanjungpinang, Indonesia</a></li>
+                        <li><a href="https://informatika.fttk.umrah.ac.id/" target="_blank"
+                                rel="noopener noreferrer">Teknik Informatika, UMRAH</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Khairul Ilham. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

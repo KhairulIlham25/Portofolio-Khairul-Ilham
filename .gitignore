@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
+
+# Env / secrets (jangan push ini kalau ada)
+.env
+.env.local
+
+# Node (kalau nanti pakai)
+node_modules/

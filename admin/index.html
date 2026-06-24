@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | KIF Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="../assets/images/Logo 2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <script src="../js/theme.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: var(--light);
+        }
+
+        .login-card {
+            width: min(440px, calc(100% - 32px));
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            padding: 44px 36px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .login-brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .login-brand h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+            margin-bottom: 4px;
+        }
+
+        .login-brand p {
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        .login-error {
+            display: none;
+            padding: 12px 14px;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            border-radius: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .theme-btn-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="theme-toggle theme-btn-fixed" aria-label="Toggle dark mode" onclick="ThemeManager.toggle()">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
+            height="18">
+            <path fill-rule="evenodd"
+                d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+                clip-rule="evenodd" />
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18"
+            height="18">
+            <path
+                d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+        </svg>
+    </button>
+
+    <div class="login-card">
+        <div class="login-brand">
+            <img src="../assets/images/Logo 2.png" alt="KIF Logo">
+            <h1>Admin Portal</h1>
+            <p>Sign in to manage your portfolio</p>
+        </div>
+
+        <div id="loginError" class="login-error"></div>
+
+        <form id="adminLoginForm" novalidate>
+            <div class="form-group">
+                <label for="adminEmail">Email</label>
+                <input type="email" id="adminEmail" name="email" placeholder="admin@example.com" required
+                    autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" name="password" placeholder="••••••••" required
+                    autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn primary btn-submit"
+                style="margin-top: 8px; width: 100%; justify-content: center;">
+                <span id="btnText">Sign In</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" width="18" height="18" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg>
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <a href="../index.html" style="color: var(--primary); font-weight: 600;">← Back to Portfolio</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script>
+        // Redirect if already logged in
+        (async () => {
+            const { data } = await SupabaseService.auth.getUser();
+            if (data?.user) window.location.href = 'dashboard.html';
+        })();
+
+        document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value.trim();
+            const password = document.getElementById('adminPassword').value;
+            const errorEl = document.getElementById('loginError');
+            const btn = this.querySelector('button[type="submit"]');
+            const btnText = document.getElementById('btnText');
+
+            errorEl.style.display = 'none';
+            btn.disabled = true;
+            btnText.textContent = 'Signing in...';
+
+            const { data, error } = await SupabaseService.auth.signIn(email, password);
+
+            if (error) {
+                errorEl.textContent = 'Email atau password salah. Silakan coba lagi.';
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btnText.textContent = 'Sign In';
+            } else {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+
+</html>
