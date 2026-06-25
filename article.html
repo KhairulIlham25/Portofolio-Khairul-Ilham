@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Detail | Khairul Ilham Portfolio</title>
+    <meta name="description" content="Artikel detail seputar Web Development, UI/UX Design, dan System Architecture oleh Khairul Ilham.">
+    <meta name="author" content="Khairul Ilham">
+    <link rel="icon" type="image/png" href="assets/images/Logo 2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Align and center article detail layout to match global container grid */
+        .article-detail-hero, 
+        .article-content {
+            width: min(760px, calc(100% - 32px));
+            margin: 0 auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .article-detail-hero {
+            padding-top: 140px; /* Offset for floating navbar */
+            padding-bottom: 24px;
+        }
+        
+        .article-content {
+            padding-top: 20px;
+            padding-bottom: 80px;
+        }
+        
+        /* Premium reading typography */
+        .article-content p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 24px;
+            color: var(--text);
+            text-align: justify;
+        }
+
+        .article-content h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 44px 0 18px;
+            letter-spacing: -0.03em;
+            line-height: 1.3;
+        }
+
+        .article-content code {
+            background: var(--primary-soft);
+            color: var(--primary);
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+        
+        /* Smooth transition for reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar" id="navbar">
+    <a href="index.html" class="brand" aria-label="Home"><img src="assets/images/Logo 2.png" alt="KIF Logo"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="articles.html" class="active">Articles</a>
+    </nav>
+    <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" onclick="ThemeManager.toggle()">
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd"/></svg>
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"/></svg>
+        </button>
+        <a href="contact.html" class="nav-cta">Contact</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="projects.html">Projects</a>
+    <a href="articles.html" class="active">Articles</a>
+    <a href="contact.html" class="nav-cta" style="text-align:center;">Contact</a>
+</nav>
+
+<main class="main-content">
+    <!-- Loading State -->
+    <div id="loadingState" style="padding: 180px 20px; text-align: center; color: var(--muted); font-weight: 600;">
+        <p id="loadingText">Sedang memuat artikel...</p>
+    </div>
+
+    <!-- Article Detail Content -->
+    <article id="articleDetailContent" style="display: none;">
+        <div class="article-detail-hero">
+            <a href="articles.html" class="article-back-btn reveal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Kembali ke Artikel
+            </a>
+
+            <div class="article-meta reveal" style="margin-top: 15px;">
+                <span id="articleCategory" class="exp-badge" style="background: var(--primary-soft); color: var(--primary); font-weight: 700; padding: 6px 14px; border-radius: 99px;">Category</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.9rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span id="articleDate">Date</span>
+                </span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.9rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span id="articleReadTime">Read Time</span>
+                </span>
+            </div>
+
+            <h1 id="articleTitle" class="reveal" style="margin-top: 20px;">Article Title</h1>
+            
+            <img id="articleImage" class="reveal" src="assets/images/project-singgahkepri.png" alt="Thumbnail" loading="lazy">
+        </div>
+
+        <div class="article-content">
+            <div id="articleBody" class="reveal">
+                <!-- Article Content Body -->
+            </div>
+            
+            <div class="article-tags reveal" id="articleTags" style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 24px;">
+                <!-- Tags -->
+            </div>
+        </div>
+    </article>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="brand"><img src="assets/images/Logo 2.png" alt="KIF Logo"></a>
+            <p>Mahasiswa Teknik Informatika yang memiliki passion dalam web development dan UI/UX design.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/KhairulIlham25" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" clip-rule="evenodd"/></svg>
+                </a>
+                <a href="https://instagram.com/ilhamfatihulhaq" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014 3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>rulikhairul25@gmail.com</li>
+                    <li><a href="https://wa.me/6281275771644" target="_blank" rel="noopener noreferrer">(+62) 812-7577-1644</a></li>
+                    <li>Tanjungpinang, Indonesia</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Khairul Ilham. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script>
+    // Fallback static articles database
+    const FALLBACK_ARTICLES = {
+        'webgis-scrum': {
+            title: 'Implementing WebGIS for Public Services using Laravel & Scrum',
+            category: 'WebGIS',
+            read_time: 8,
+            date: 'March 12, 2026',
+            thumbnail_url: 'assets/images/project-singgahkepri.png',
+            tags: ['WebGIS', 'Laravel', 'Scrum'],
+            content: `
+                <p>Pengembangan sistem informasi geografis berbasis web (WebGIS) kini menjadi salah satu kebutuhan krusial dalam instansi pelayanan publik. Dengan memvisualisasikan data spasial lokasi kantor, sarana ibadah, sekolah, dan puskesmas, masyarakat dapat dengan mudah mengakses informasi geografis secara real-time. Artikel ini membahas bagaimana mengintegrasikan peta interaktif menggunakan framework Laravel dan Leaflet.js, serta bagaimana kerangka kerja Scrum mengoptimalkan waktu pengembangan kami.</p>
+                
+                <h2>Mengapa Memilih Laravel & Leaflet.js?</h2>
+                <p>Laravel menyediakan struktur backend yang sangat tangguh, aman, dan mudah diskalakan. Fitur routing, validasi data, serta Eloquent ORM memudahkan pengelolaan data koordinat Latitude dan Longitude di database. Sementara itu, Leaflet.js dipilih karena bobotnya yang sangat ringan, performa tinggi, dan mudah dikustomisasi pada sisi frontend.</p>
+                
+                <h2>Integrasi Data Spasial</h2>
+                <p>Untuk menyimpan data lokasi, kami memanfaatkan PostgreSQL dengan ekstensi PostGIS atau menggunakan tipe data spasial dasar jika menggunakan MySQL. Dalam studi kasus ini, kami memetakan fasilitas publik dengan koordinat titik (Point) sederhana. Data koordinat ditarik menggunakan API Laravel dalam format GeoJSON, yang kemudian dirender secara dinamis oleh script Leaflet.js di sisi browser.</p>
+                
+                <h2>Penerapan Scrum untuk Efisiensi Tim</h2>
+                <p>Dengan menerapkan metodologi Scrum, tim kami membagi pengerjaan menjadi sprint 2 mingguan. Setiap sprint diawali dengan Sprint Planning untuk menentukan backlog mana yang memiliki prioritas tertinggi. Sesi Daily Standup membantu kami mengidentifikasi blocker secara cepat (seperti masalah performa rendering marker peta yang terlalu banyak) dan segera menyelesaikannya dengan teknik clustering marker.</p>
+            `
+        },
+        'logitim': {
+            title: 'Designing for Maritime Logistics: LOGITIM Case Study',
+            category: 'UI/UX',
+            read_time: 6,
+            date: 'January 22, 2026',
+            thumbnail_url: 'assets/images/project-logitim.png',
+            tags: ['UI/UX', 'Figma', 'Maritime'],
+            content: `
+                <p>Industri logistik maritim terkenal dengan kompleksitas datanya—mulai dari manifes kapal, jadwal keberangkatan, status kontainer, hingga perizinan pelabuhan. LOGITIM dirancang untuk menyederhanakan workflow yang rumit tersebut menjadi sebuah platform digital yang bersih, modern, dan mudah dipahami oleh operator pelabuhan maupun pemilik barang.</p>
+                
+                <h2>Proses User Research</h2>
+                <p>Langkah awal pengerjaan LOGITIM adalah melakukan user interview terhadap beberapa agen kapal dan staf logistik di pelabuhan Tanjungpinang. Dari penelitian ini, kami menemukan beberapa pain points utama: sulitnya melacak status pengiriman kontainer secara real-time dan interface aplikasi pelabuhan lama yang terlalu padat dan membingungkan.</p>
+                
+                <h2>Wireframing & Desain Visual di Figma</h2>
+                <p>Berdasarkan temuan tersebut, kami merancang wireframe dengan fokus pada hierarki informasi yang kuat. Halaman dashboard utama dirancang dengan layout tiga kolom: ringkasan status di bagian kiri, visualisasi rute peta di tengah, dan daftar kapal/aktivitas terbaru di kanan. Kami menggunakan warna biru samudera (deep blue) sebagai warna identitas utama untuk merepresentasikan stabilitas dan kepercayaan industri maritim.</p>
+                
+                <h2>Usability Testing</h2>
+                <p>Sebelum masuk ke tahap coding, prototipe interaktif diuji secara langsung kepada calon pengguna menggunakan metode System Usability Scale (SUS). Hasil pengujian menunjukkan peningkatan efisiensi pengerjaan tugas pelacakan kapal hingga 40% dibandingkan sistem konvensional.</p>
+            `
+        },
+        'umrah-student': {
+            title: 'Development Journey: UMRAH Student Information System',
+            category: 'System Design',
+            read_time: 7,
+            date: 'November 10, 2025',
+            thumbnail_url: 'assets/images/project-simawa.png',
+            tags: ['PHP', 'JavaScript', 'System Design'],
+            content: `
+                <p>Membangun Portal Sistem Informasi Mahasiswa Universitas Maritim Raja Ali Haji (UMRAH) memberikan tantangan tersendiri, terutama dalam merancang arsitektur database yang mampu menangani ribuan mahasiswa aktif secara bersamaan dengan performa optimal.</p>
+                
+                <h2>Arsitektur Aplikasi</h2>
+                <p>Kami menggunakan arsitektur Model-View-Controller (MVC) berbasis PHP Native untuk menjaga kode tetap bersih, terstruktur, dan terpisah antara logika bisnis dan rendering UI. Di sisi frontend, kami menerapkan Vanilla JavaScript (ES6) untuk interaksi dinamis tanpa bergantung pada framework besar yang memberatkan pemuatan halaman pertama kali.</p>
+                
+                <h2>Optimasi Database & Keamanan Data</h2>
+                <p>Dengan jumlah relasi tabel yang kompleks (nilai, jadwal, KRS, data pribadi, dosen), kami melakukan normalisasi database hingga bentuk 3NF untuk menghindari anomali data. Untuk keamanan, kami mengimplementasikan Prepared Statements guna menangkal ancaman SQL Injection serta enkripsi password menggunakan bcrypt.</p>
+                
+                <h2>Desain Antarmuka yang Fungsional</h2>
+                <p>Portal mahasiswa menuntut aksesibilitas yang tinggi, baik diakses melalui komputer kampus maupun smartphone pribadi mahasiswa. Oleh karena itu, grid system yang fleksibel diterapkan untuk memastikan dashboard nilai, penginputan KRS, dan jadwal kuliah tetap nyaman dibaca pada layar perangkat mobile terkecil sekalipun.</p>
+            `
+        },
+        'smart-courier': {
+            title: 'Pathfinding Optimization: Smart Courier with A-Star Algorithm',
+            category: 'Algorithm',
+            read_time: 9,
+            date: 'September 28, 2025',
+            thumbnail_url: 'assets/images/project-simawa.png',
+            tags: ['JavaScript', 'Algorithm', 'Logic'],
+            content: `
+                <p>Optimasi rute merupakan jantung dari efisiensi operasional pengiriman barang. Dalam proyek Smart Courier ini, kami mengeksplorasi implementasi Algoritma A* (A-Star) untuk menemukan rute terpendek bagi kurir dalam mengantarkan paket ke beberapa titik koordinat di area perkotaan.</p>
+                
+                <h2>Prinsip Kerja Algoritma A*</h2>
+                <p>Algoritma A* bekerja dengan mengevaluasi simpul (node) tetangga berdasarkan fungsi biaya: <code>f(n) = g(n) + h(n)</code>. Di mana <code>g(n)</code> adalah biaya riil dari titik awal ke simpul saat ini, dan <code>h(n)</code> adalah estimasi biaya heuristik dari simpul saat ini ke tujuan (menggunakan Manhattan Distance atau Euclidean Distance).</p>
+                
+                <h2>Implementasi dalam JavaScript</h2>
+                <p>Kami memetakan wilayah kota menjadi sebuah grid map interaktif. Rintangan berupa kemacetan jalan atau jalan ditutup direpresentasikan sebagai node yang tidak dapat dilewati (obstacle). Algoritma A* secara dinamis menghitung rute optimal setiap kali koordinat posisi kurir bergeser.</p>
+                
+                <h2>Analisis Hasil Uji Coba</h2>
+                <p>Dari pengujian simulasi, algoritma A* berhasil memangkas waktu kalkulasi rute hingga 60% dibanding algoritma Dijkstra standar, karena pendekatan heuristiknya yang mempersempit ruang pencarian simpul secara signifikan.</p>
+            `
+        },
+        'singgahkepri': {
+            title: 'Promoting Local Tourism: The SinggahKepri Web Platform',
+            category: 'Tourism',
+            read_time: 7,
+            date: 'July 15, 2025',
+            thumbnail_url: 'assets/images/project-singgahkepri.png',
+            tags: ['UI Design', 'JavaScript', 'Tourism'],
+            content: `
+                <p>Provinsi Kepulauan Riau (Kepri) kaya akan destinasi wisata bahari dan sejarah. Namun, akses informasi yang terintegrasi mengenai objek wisata tersebut masih sangat terbatas. SinggahKepri dirancang untuk menjadi gerbang pariwisata digital utama di Kepri.</p>
+                
+                <h2>Fitur Utama SinggahKepri</h2>
+                <p>Platform ini memiliki tiga fitur utama: Destinasi Terpopuler, Panduan Kuliner Lokal, dan Peta Wisata Interaktif. Pengunjung dapat membaca ulasan objek wisata, melihat rute lokasi terbaik, serta menyusun rencana perjalanan mereka sendiri secara online.</p>
+                
+                <h2>Desain Responsif & Estetika Visual</h2>
+                <p>Sebagai platform promosi pariwisata, SinggahKepri mengedepankan visual yang memukau. Kami menggunakan galeri foto beresolusi tinggi dengan efek lazy-loading untuk mempercepat kecepatan muat halaman. Tipografi modern dikombinasikan dengan palet warna cerah (oranye matahari terbenam dan biru toska pantai) untuk menarik minat wisatawan muda.</p>
+                
+                <h2>Teknologi yang Digunakan</h2>
+                <p>Proyek ini dibangun menggunakan HTML5, CSS3 Grid Layout, dan Vanilla JavaScript untuk manipulasi DOM dan animasi interaktif. Kami juga mengintegrasikan Google Maps API untuk mempermudah petunjuk arah ke destinasi wisata.</p>
+            `
+        },
+        'figma-uiux': {
+            title: 'Mastering Figma & UI/UX Fundamentals',
+            category: 'UI/UX',
+            read_time: 5,
+            date: 'May 18, 2025',
+            thumbnail_url: 'assets/images/project-logitim.png',
+            tags: ['Figma', 'UI/UX', 'Branding'],
+            content: `
+                <p>UI/UX Design bukan sekadar mempercantik tampilan, melainkan tentang bagaimana memecahkan masalah pengguna secara logis, efisien, dan menyenangkan. Artikel ini merangkum proses belajar saya dalam menguasai tool Figma dan memahami pilar-pilar penting UI/UX.</p>
+                
+                <h2>Mengapa Memilih Figma?</h2>
+                <p>Figma adalah platform desain kolaboratif berbasis cloud yang sangat bertenaga. Fitur seperti Auto Layout, Varian Komponen, dan Interactive Prototyping memotong waktu pengerjaan desain hingga setengahnya, sekaligus memastikan sinkronisasi antara desainer dan tim developer.</p>
+                
+                <h2>Pilar Fundamental UI/UX</h2>
+                <p>Dalam merancang interface, saya selalu menerapkan 10 Usability Heuristics dari Jakob Nielsen. Dua prinsip terpenting di antaranya adalah konsistensi (Consistency and Standards) dan kejelasan status sistem (Visibility of System Status).</p>
+                
+                <h2>Langkah Memulai</h2>
+                <p>Bagi pemula, mulailah dengan membuat Design System sederhana terlebih dahulu (palette warna, skala tipografi, grid system, dan komponen button). Desain sistem ini akan menjadi jangkar agar desain Anda selalu rapi dan konsisten di setiap halaman.</p>
+            `
+        },
+        'laravel11': {
+            title: 'Masa Depan Web Development dengan Laravel 11',
+            category: 'Architecture',
+            read_time: 5,
+            date: 'May 19, 2026',
+            thumbnail_url: 'assets/images/project-singgahkepri.png',
+            tags: ['Laravel', 'Web Development', 'Architecture'],
+            content: `
+                <p>Laravel kembali merilis versi terbarunya, Laravel 11, dengan membawa perubahan paradigma yang sangat besar. Fokus utama pembaruan kali ini adalah minimalisir kebisingan konfigurasi dan penyederhanaan struktur folder bawaan.</p>
+                
+                <h2>Struktur Folder yang Minimalis</h2>
+                <p>Pada versi sebelumnya, kita sering melihat folder konfigurasi yang sangat banyak dan file bootstrap yang kompleks. Di Laravel 11, folder <code>config/</code> bawaan dikosongkan secara default, dan semua file konfigurasi dijalankan di bawah kap mesin. Kita tetap bisa mempublish file konfigurasi secara manual jika diperlukan menggunakan perintah Artisan.</p>
+                
+                <h2>Penyederhanaan Routing & Middleware</h2>
+                <p>File middleware dan exception handler bawaan kini disatukan ke dalam file <code>bootstrap/app.php</code>. Hal ini membuat folder <code>app/Http/</code> menjadi sangat bersih dari file boilerplates yang jarang disentuh oleh developer.</p>
+                
+                <h2>Database Default SQLite</h2>
+                <p>Untuk mempermudah prototyping awal dan pengujian lokal, Laravel 11 kini menjadikan SQLite sebagai database default bawaan, sehingga pengembang baru dapat langsung menjalankan server tanpa perlu melakukan konfigurasi server database eksternal terlebih dahulu.</p>
+            `
+        }
+    };
+
+    // Mobile Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        document.addEventListener('click', function (e) {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
+    }
+
+    async function loadArticle() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let slug = urlParams.get('slug');
+        
+        // Handle direct pathname check (if accessed via /article-slug.html directly)
+        if (!slug) {
+            const path = window.location.pathname.split('/').pop();
+            const match = path.match(/^article-(.+)\.html$/);
+            if (match) {
+                slug = match[1];
+            }
+        }
+
+        if (!slug) {
+            showError("Artikel tidak ditemukan. Harap sertakan parameter slug.");
+            return;
+        }
+
+        // Clean slug
+        slug = slug.replace(/\.html$/, '');
+
+        let article = null;
+
+        // 1. Try fetching from Supabase service
+        if (window.SupabaseService && window.SupabaseService.articles) {
+            try {
+                const { data, error } = await window.SupabaseService.articles.getBySlug(slug);
+                if (data && !error) {
+                    article = {
+                        title: data.title,
+                        category: data.category,
+                        read_time: data.read_time,
+                        date: new Date(data.created_at).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
+                        thumbnail_url: data.thumbnail_url || 'assets/images/project-singgahkepri.png',
+                        tags: data.tags || [],
+                        content: data.content
+                    };
+                }
+            } catch (err) {
+                console.warn("Supabase fetch failed, trying fallback:", err);
+            }
+        }
+
+        // 2. Fall back to local database
+        if (!article) {
+            article = FALLBACK_ARTICLES[slug];
+        }
+
+        if (!article) {
+            showError("Artikel dengan slug '" + slug + "' tidak ditemukan.");
+            return;
+        }
+
+        // 3. Render the details
+        document.title = article.title + " | Khairul Ilham Portfolio";
+        document.getElementById('articleTitle').textContent = article.title;
+        document.getElementById('articleCategory').textContent = article.category || 'Insights';
+        document.getElementById('articleReadTime').textContent = (article.read_time || 5) + ' min read';
+        document.getElementById('articleDate').textContent = article.date;
+        document.getElementById('articleImage').src = article.thumbnail_url;
+        document.getElementById('articleImage').alt = article.title;
+        
+        // Render tags
+        const tagsContainer = document.getElementById('articleTags');
+        if (tagsContainer) {
+            tagsContainer.innerHTML = (article.tags || []).map(t => `<span class="exp-badge">${t}</span>`).join('');
+        }
+
+        // Render content body
+        const contentContainer = document.getElementById('articleBody');
+        if (contentContainer) {
+            const cleanContent = article.content.trim();
+            if (cleanContent.startsWith('<') && cleanContent.endsWith('>')) {
+                // Pre-formatted HTML content
+                contentContainer.innerHTML = article.content;
+            } else {
+                // Plain markdown/text, render with paragraph tags
+                contentContainer.innerHTML = article.content
+                    .split('\n\n')
+                    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+                    .join('');
+            }
+        }
+
+        // Switch visible state
+        document.getElementById('loadingState').style.display = 'none';
+        
+        const detailContent = document.getElementById('articleDetailContent');
+        detailContent.style.display = 'block';
+        
+        // Trigger staggered scroll reveal animation
+        const reveals = detailContent.querySelectorAll('.reveal');
+        reveals.forEach((el, index) => {
+            const delay = index * 80;
+            setTimeout(() => {
+                el.classList.add('visible');
+            }, delay);
+        });
+    }
+
+    function showError(msg) {
+        document.getElementById('loadingText').textContent = msg;
+        document.getElementById('loadingText').style.color = '#dc2626';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadArticle);
+</script>
+</body>
+</html>

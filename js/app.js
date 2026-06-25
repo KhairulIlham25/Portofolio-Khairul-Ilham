@@ -82,7 +82,12 @@
     // ── Active nav link highlight (scroll spy) ──
     function updateActiveNav() {
         const links = document.querySelectorAll('.nav-links a, .mobile-menu a');
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        // Treat article.html as articles.html for navbar highlighting
+        if (currentPage === 'article.html') {
+            currentPage = 'articles.html';
+        }
 
         // On non-index pages, just highlight by page path
         if (currentPage !== 'index.html' && currentPage !== '') {
@@ -168,7 +173,7 @@
     function initProjectFilter() {
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
-        if (!filterBtns.length) return;
+        if (!filterBtns.length || !projectCards.length) return;
 
         filterBtns.forEach(function (btn) {
             btn.addEventListener('click', function () {
@@ -177,23 +182,49 @@
                 btn.classList.add('active');
 
                 const filter = btn.getAttribute('data-filter');
+                let visibleIndex = 0;
 
                 projectCards.forEach(function (card) {
                     const category = card.getAttribute('data-category');
                     const show = filter === 'all' || category === filter;
 
+                    // Cancel any pending timeout to prevent race conditions
+                    if (card._filterTimeout) {
+                        clearTimeout(card._filterTimeout);
+                        card._filterTimeout = null;
+                    }
+
                     if (show) {
+                        // Ensure it is visible in the DOM
                         card.style.display = 'block';
-                        setTimeout(function () {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
+                        
+                        // Set the initial layout state (invisible and moved down slightly) without animation
+                        card.style.transition = 'none';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        
+                        // Force a browser reflow/repaint to register the initial state
+                        card.offsetHeight;
+                        
+                        // Calculate staggered delay for a clean wave effect
+                        const delay = visibleIndex * 50; // 50ms delay per card
+                        visibleIndex++;
+                        
+                        // Apply the transition settings with delay and slide-up to final state
+                        card.style.transition = `opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) ${delay}ms`;
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
                     } else {
+                        // Fade out and translate down smoothly
+                        card.style.transition = 'opacity 0.25s cubic-bezier(0.25, 1, 0.5, 1), transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)';
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(20px)';
-                        setTimeout(function () {
+                        
+                        // Hide from DOM after transition completes
+                        card._filterTimeout = setTimeout(function () {
                             card.style.display = 'none';
-                        }, 300);
+                            card._filterTimeout = null;
+                        }, 250);
                     }
                 });
             });
@@ -278,37 +309,7 @@
         }, { passive: true });
     }
 
-    // ── Admin Login ──────────────────────────────
-    function initAdminLogin() {
-        const form = document.getElementById('adminLoginForm');
-        if (!form) return;
 
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const email = document.getElementById('adminEmail').value;
-            const password = document.getElementById('adminPassword').value;
-            const errorEl = document.getElementById('loginError');
-
-            if (errorEl) errorEl.style.display = 'none';
-
-            if (window.FirebaseService) {
-                const result = await window.FirebaseService.adminLogin(email, password);
-                if (result.success) {
-                    window.location.href = 'dashboard.html';
-                } else {
-                    if (errorEl) {
-                        errorEl.textContent = result.error || 'Login gagal. Periksa email dan password Anda.';
-                        errorEl.style.display = 'block';
-                    }
-                }
-            } else {
-                if (errorEl) {
-                    errorEl.textContent = 'Firebase belum dikonfigurasi.';
-                    errorEl.style.display = 'block';
-                }
-            }
-        });
-    }
 
     // ── Typing Effect ────────────────────────────
     function initTypingEffect() {
@@ -366,7 +367,6 @@
         initProjectFilter();
         initContactForm();
         initNavbarScroll();
-        initAdminLogin();
         initTypingEffect();
     });
 

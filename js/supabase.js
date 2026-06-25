@@ -1,4 +1,4 @@
-﻿// ============================================
+// ============================================
 // supabase.js - Supabase Client & Service Layer
 // ============================================
 
@@ -92,6 +92,10 @@ const articles = {
     },
     async getById(id) {
         const { data, error } = await _db.from('articles').select('*').eq('id', id).single();
+        return { data, error };
+    },
+    async getBySlug(slug) {
+        const { data, error } = await _db.from('articles').select('*').eq('slug', slug).single();
         return { data, error };
     },
     async create(payload) {

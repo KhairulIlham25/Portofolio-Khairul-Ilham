@@ -16,6 +16,10 @@
             "dest": "/articles.html"
         },
         {
+            "src": "/article",
+            "dest": "/article.html"
+        },
+        {
             "src": "/contact",
             "dest": "/contact.html"
         },
