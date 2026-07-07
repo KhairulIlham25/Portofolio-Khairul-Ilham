@@ -143,7 +143,7 @@
         // Redirect if already logged in
         (async () => {
             const { data } = await SupabaseService.auth.getUser();
-            if (data?.user) window.location.href = 'dashboard.html';
+            if (data?.user) window.location.href = '/admin/dashboard';
         })();
 
         document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
@@ -166,7 +166,7 @@
                 btn.disabled = false;
                 btnText.textContent = 'Sign In';
             } else {
-                window.location.href = 'dashboard.html';
+                window.location.href = '/admin/dashboard';
             }
         });
     </script>
