@@ -2,58 +2,38 @@
     "version": 2,
     "name": "khairulilham-portfolio",
     "cleanUrls": true,
-    "routes": [
+    "rewrites": [
         {
-            "src": "/index",
-            "dest": "/index.html"
+            "source": "/admin",
+            "destination": "/admin/index.html"
         },
         {
-            "src": "/projects",
-            "dest": "/projects.html"
+            "source": "/admin/dashboard",
+            "destination": "/admin/dashboard.html"
         },
         {
-            "src": "/articles",
-            "dest": "/articles.html"
+            "source": "/admin/messages",
+            "destination": "/admin/messages.html"
         },
         {
-            "src": "/article",
-            "dest": "/article.html"
+            "source": "/admin/projects",
+            "destination": "/admin/projects.html"
         },
         {
-            "src": "/contact",
-            "dest": "/contact.html"
+            "source": "/admin/articles",
+            "destination": "/admin/articles.html"
         },
         {
-            "src": "/admin",
-            "dest": "/admin/index.html"
+            "source": "/admin/experiences",
+            "destination": "/admin/experiences.html"
         },
         {
-            "src": "/admin/dashboard",
-            "dest": "/admin/dashboard.html"
+            "source": "/admin/skills",
+            "destination": "/admin/skills.html"
         },
         {
-            "src": "/admin/messages",
-            "dest": "/admin/messages.html"
-        },
-        {
-            "src": "/admin/projects",
-            "dest": "/admin/projects.html"
-        },
-        {
-            "src": "/admin/articles",
-            "dest": "/admin/articles.html"
-        },
-        {
-            "src": "/admin/experiences",
-            "dest": "/admin/experiences.html"
-        },
-        {
-            "src": "/admin/skills",
-            "dest": "/admin/skills.html"
-        },
-        {
-            "src": "/admin/settings",
-            "dest": "/admin/settings.html"
+            "source": "/admin/settings",
+            "destination": "/admin/settings.html"
         }
     ],
     "headers": [
