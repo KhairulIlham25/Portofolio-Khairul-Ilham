@@ -1790,9 +1790,92 @@ a {
     transform: translateY(0);
 }
 
+/* Stagger animation for filter buttons */
+.projects-filter .filter-btn.reveal {
+    transition-delay: 0.1s;
+}
+
+.projects-filter .filter-btn.reveal:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.projects-filter .filter-btn.reveal:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.projects-filter .filter-btn.reveal:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
+
+/* ── iPad Pro 11 (1194px x 834px) ─────────── */
+@media (max-width: 1194px) and (min-width: 993px) {
+    .hero {
+        grid-template-columns: 1fr 320px;
+        gap: 42px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── MacBook Air (1440px x 900px) ──────────── */
+@media (max-width: 1440px) and (min-width: 1195px) {
+    .hero {
+        grid-template-columns: 1fr 380px;
+        gap: 48px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── Galaxy Tab S7 (1138px x 712px) ─────────── */
+@media (max-width: 1138px) and (min-width: 993px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .about-content {
+        gap: 36px;
+    }
+}
+
+/* ── General Tablet & Small Laptop ─────────── */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Tablet Portrait & Large Mobile ────────── */
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
@@ -1861,6 +1944,472 @@ a {
     }
 }
 
+/* ── iPhone 14 Pro Max (430px x 932px) ────── */
+@media (max-width: 430px) and (min-height: 850px) {
+    .hero {
+        margin-top: 90px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.05;
+    }
+
+    .hero-typing-line {
+        font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-socials {
+        justify-content: center;
+    }
+
+    .section {
+        padding: 100px 0 80px;
+    }
+
+    .detail-item {
+        padding: 12px 14px;
+    }
+
+    .detail-icon {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+    }
+
+    .projects-filter {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        font-size: 0.85rem;
+        padding: 7px 18px;
+    }
+}
+
+/* ── OPPO Find X3 Pro (412px x 919px) ──────── */
+@media (max-width: 412px) and (min-height: 850px) {
+    .navbar {
+        padding: 10px 14px;
+    }
+
+    .brand {
+        width: 38px;
+        height: 38px;
+    }
+
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hero-image-card {
+        height: 400px;
+    }
+
+    .floating-card {
+        padding: 10px 14px;
+        left: 8px;
+        bottom: 20px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .exp-card {
+        padding: 16px;
+    }
+
+    .contact-section {
+        padding: 24px 20px;
+    }
+
+    .contact-form-col {
+        padding: 22px;
+    }
+}
+
+/* ── Samsung Galaxy S20 (360px x 800px) ───── */
+@media (max-width: 360px) {
+    .navbar {
+        width: min(100% - 18px, 1080px);
+        padding: 10px 12px;
+    }
+
+    .brand {
+        width: 36px;
+        height: 36px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero,
+    .section,
+    .contact-section {
+        width: min(100% - 20px, 1080px);
+    }
+
+    .hero {
+        margin-top: 85px;
+        gap: 28px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.08;
+        margin-bottom: 16px;
+    }
+
+    .hero-typing-line {
+        font-size: 1rem;
+        margin-bottom: 14px;
+    }
+
+    .hero-desc {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin-bottom: 22px;
+    }
+
+    .badge {
+        padding: 7px 12px;
+        font-size: 0.82rem;
+    }
+
+    .btn-cta {
+        padding: 11px 18px;
+        font-size: 0.88rem;
+    }
+
+    .social-icon-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .hero-image-card {
+        height: 340px;
+        border-radius: 20px;
+    }
+
+    .floating-card {
+        padding: 8px 12px;
+        left: 5px;
+        bottom: 15px;
+        border-radius: 14px;
+    }
+
+    .floating-card span {
+        font-size: 0.7rem;
+    }
+
+    .floating-card strong {
+        font-size: 0.88rem;
+    }
+
+    .section {
+        padding: 100px 0 70px;
+    }
+
+    .section-heading {
+        margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    .section-heading p {
+        font-size: 0.92rem;
+    }
+
+    .about-lead {
+        font-size: 0.98rem;
+        line-height: 1.75;
+    }
+
+    .about-desc {
+        font-size: 0.92rem;
+        line-height: 1.75;
+    }
+
+    .about-image img {
+        height: 340px;
+        border-radius: 20px;
+    }
+
+    .about-image::before {
+        inset: 8px -5px -5px 8px;
+        border-radius: 20px;
+    }
+
+    .about-details {
+        gap: 12px;
+    }
+
+    .detail-item {
+        padding: 10px 12px;
+    }
+
+    .detail-icon {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        font-size: 0.85rem;
+    }
+
+    .detail-label {
+        font-size: 0.68rem;
+    }
+
+    .detail-value {
+        font-size: 0.82rem;
+    }
+
+    .about-interests {
+        padding: 14px 16px;
+    }
+
+    .about-interests h4 {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+    }
+
+    .interest-item {
+        padding: 5px 11px;
+        font-size: 0.78rem;
+    }
+
+    .interest-item i {
+        font-size: 0.74rem;
+    }
+
+    .skill-card {
+        padding: 20px;
+    }
+
+    .skill-card-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .skill-name {
+        font-size: 0.88rem;
+    }
+
+    .skill-pct {
+        font-size: 0.78rem;
+    }
+
+    .exp-item {
+        grid-template-columns: 32px 1fr;
+        gap: 10px;
+    }
+
+    .exp-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .exp-card {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .exp-card h3 {
+        font-size: 0.98rem;
+    }
+
+    .exp-company {
+        font-size: 0.8rem;
+    }
+
+    .exp-badge {
+        padding: 4px 11px;
+        font-size: 0.74rem;
+    }
+
+    .exp-card p {
+        font-size: 0.86rem;
+        line-height: 1.7;
+    }
+
+    .exp-tags span {
+        padding: 4px 10px;
+        font-size: 0.74rem;
+    }
+
+    .projects-filter {
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .filter-btn {
+        padding: 6px 16px;
+        font-size: 0.82rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .project-image-wrap {
+        height: 200px;
+    }
+
+    .project-body {
+        padding: 20px;
+    }
+
+    .project-body h3 {
+        font-size: 1.12rem;
+    }
+
+    .project-body p {
+        font-size: 0.86rem;
+        line-height: 1.65;
+    }
+
+    .project-tags {
+        gap: 7px;
+    }
+
+    .exp-badge {
+        padding: 4px 10px;
+        font-size: 0.74rem;
+    }
+
+    .contact-section {
+        padding: 22px 18px;
+    }
+
+    .contact-section p {
+        font-size: 0.84rem;
+    }
+
+    .contact-section h2 {
+        font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    }
+
+    .btn.primary {
+        padding: 11px 18px;
+        font-size: 0.88rem;
+    }
+
+    .info-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .info-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+
+    .info-content h3 {
+        font-size: 0.9rem;
+    }
+
+    .info-content p {
+        font-size: 0.9rem;
+    }
+
+    .info-content span {
+        font-size: 0.8rem;
+    }
+
+    .contact-form-col {
+        padding: 20px;
+    }
+
+    .form-group label {
+        font-size: 0.84rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 11px 14px;
+        font-size: 0.9rem;
+    }
+
+    .btn-submit {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-inner {
+        width: min(100% - 20px, 1080px);
+        padding: 40px 0 32px;
+        gap: 32px;
+    }
+
+    .footer-brand .brand {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 14px;
+    }
+
+    .footer-brand>p {
+        font-size: 0.84rem;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .footer-socials a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer-col h4 {
+        font-size: 0.68rem;
+        margin-bottom: 14px;
+    }
+
+    .footer-col ul {
+        gap: 8px;
+    }
+
+    .footer-col ul li a,
+    .footer-col ul li:not(:has(a)) {
+        font-size: 0.84rem;
+    }
+
+    .footer-bottom {
+        width: min(100% - 20px, 1080px);
+        padding: 16px 0;
+    }
+
+    .footer-bottom p {
+        font-size: 0.76rem;
+    }
+}
+
+/* ── General Mobile ────────────────────────── */
 @media (max-width: 600px) {
     :root {
         --section-gap: 72px;
@@ -1965,12 +2514,5 @@ a {
 @media (max-width: 640px) {
     .articles-grid {
         grid-template-columns: 1fr !important;
-    }
-}
-
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
     }
 }
